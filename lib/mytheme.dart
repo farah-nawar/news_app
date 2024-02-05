@@ -30,7 +30,12 @@ class MyTheme{
        color: greycolor,
        fontSize: 22,
        fontWeight: FontWeight.bold,
-     )
+     ),
+     subtitle2: TextStyle(
+       color: whiteColor,
+       fontSize: 22,
+       fontWeight: FontWeight.bold,
+     ),
    ),
 
     appBarTheme: AppBarTheme(
