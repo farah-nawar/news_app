@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/model/category.dart';
 
+import '../mytheme.dart';
 import 'item_category_widget.dart';
 
 class  CategoryWidget extends StatelessWidget {
@@ -8,6 +9,15 @@ class  CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            'assets/images/background.png'
+          ),
+          fit: BoxFit.cover,
+        ),
+        color: MyTheme.whiteColor
+      ),
       margin: EdgeInsets.all(25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

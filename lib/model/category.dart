@@ -23,7 +23,8 @@ class Category{
       Category(id: 'health', color: MyTheme.pinkColor, title: 'Health', imagepath: 'assets/images/health.png' ),
       Category(id: 'business', color: MyTheme.brownColor, title: 'Business', imagepath: 'assets/images/bussines.png' ),
       Category(id: 'environment', color: MyTheme.blueColor, title: 'Environment', imagepath: 'assets/images/environment.png' ),
-      Category(id: 'science', color: MyTheme.yellowColor, title: 'Science', imagepath: 'assets/images/science.png')
+      Category(id: 'science', color: MyTheme.yellowColor, title: 'Science', imagepath: 'assets/images/science.png'),
+      Category(id: 'General', color: MyTheme.primaryLightColor, title: 'General', imagepath: 'assets/images/environment.png')
 
 
 
