@@ -11,7 +11,7 @@ class NewsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<NewsResponse>(
-      future: ApiManager.getNews(selectedSource.id ?? ''),
+      future: ApiManager.getNews(sourceId: selectedSource.id?? ''),
 
       builder:(context, snapshot){
         if(snapshot.connectionState == ConnectionState.waiting){
