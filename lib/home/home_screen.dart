@@ -54,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedDrawer = HomeDrawer.categories;
   void onSideMenuCallBack(int selected) {
     selectedDrawer=selected;
+    selectedCategory=null;
     Navigator.pop(context);
     setState(() {});
   }
