@@ -6,6 +6,7 @@ import 'package:news_app/home/home_drawer.dart';
 import 'package:news_app/model/SourcesResponse.dart';
 
 import '../model/category.dart';
+import '../mytheme.dart';
 
 class HomeScreen extends StatelessWidget{
   static const String routename='home';
@@ -25,27 +26,24 @@ class HomeScreen extends StatelessWidget{
       body: FutureBuilder<SourcesResponse>(
         future: ApiManager.getSources(),
     builder: (context,snapshot) {
-      if (snapshot.connectionState == ConnectionState.waiting) {
-        return CircularProgressIndicator();
-      }
-      else if (snapshot.hasError) {
-        return Column(
-          children: [
-            Text('Something went wrong'),
-            ElevatedButton(onPressed: () {}, child: Text('Try Again'))
-          ],
+      if(snapshot.connectionState == ConnectionState.waiting){
+        return Center(
+          child: CircularProgressIndicator(
+            color: MyTheme.primaryLightColor,
+          ),
+
         );
+
       }
       if (snapshot.data?.status != 'ok') {
-        //server has code and message
         return Column(
           children: [
-            Text(snapshot.data?.message ?? ""),
-            ElevatedButton(onPressed: () {}, child: Text("Try Again")),
-
+            Text(snapshot.data?.message ?? ''),
+            ElevatedButton(onPressed: () {}, child: Text('Try Again!'))
           ],
         );
       }
+      
       //data
       var sourceslist =snapshot.data?.sources ?? [];
       // return ListView.builder(itemBuilder: (context, index){

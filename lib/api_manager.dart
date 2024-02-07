@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:news_app/model/NewsResponse.dart';
 
 import 'model/SourcesResponse.dart';
 
@@ -20,6 +21,26 @@ class ApiManager {
         var sourcesresponse = SourcesResponse.fromJson(bodyjson); //object
         return sourcesresponse;
       } catch (e) {
+        throw e;
+      }
+    }
+
+    static Future<NewsResponse> getNews(String sourceId) async{
+      //https://newsapi.org/v2/everything?q=bitcoin&apiKey=bf41c384122e421897631ba87f0ce049
+      var url= Uri.https(baseURL,'/v2/everything',
+      {
+          'apiKey':'bf41c384122e421897631ba87f0ce049',
+          'sources':sourceId
+
+      }
+      );
+      try {
+        var response = await http.get(url);
+        var bodyString = response.body;
+        var bodyjson = jsonDecode(bodyString);
+        var newsresponses = NewsResponse.fromJson(bodyjson);
+        return newsresponses;
+      } catch(e){
         throw e;
       }
     }
