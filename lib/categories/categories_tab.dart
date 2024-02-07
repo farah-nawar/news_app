@@ -6,6 +6,8 @@ import 'item_category_widget.dart';
 
 class  CategoryWidget extends StatelessWidget {
   var categoryList= Category.getCategoryList();
+  Function onCategoryCallBack;
+  CategoryWidget({required this.onCategoryCallBack});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +35,10 @@ class  CategoryWidget extends StatelessWidget {
                 crossAxisSpacing: 18,  // Spacing between columns
               ), itemBuilder: ( context, index)
             {
-                return ItemCategoryWidget(index: index,category: categoryList[index],);
+                return InkWell(onTap: (){
+                  onCategoryCallBack(categoryList[index]);
+                },
+                  child: ItemCategoryWidget(index: index,category: categoryList[index],));
             },
               itemCount: categoryList.length,
           ),

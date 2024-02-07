@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/categories/categories_tab.dart';
 import 'package:news_app/mytheme.dart';
 
+import '../settings/settings_tab.dart';
+
 class HomeDrawer extends StatelessWidget {
+  Function onSideButton;
+  static const int categories=1;
+  static const int settings=2;
+  HomeDrawer({required this.onSideButton});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +28,8 @@ class HomeDrawer extends StatelessWidget {
           InkWell(
             onTap: (){
               //Categories tab
-            },
+onSideButton(HomeDrawer.categories) ;
+},
             child: Row(
               children: [
                 Icon(Icons.list),
@@ -34,7 +42,8 @@ class HomeDrawer extends StatelessWidget {
           InkWell(
             onTap:(){
               //setting tab
-            },
+              onSideButton(HomeDrawer.settings);
+      },
             child: Row(
               children: [
                 Icon(Icons.settings),

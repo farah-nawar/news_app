@@ -9,9 +9,10 @@ class ApiManager {
   static const String baseURL='newsapi.org';
 
     //https://newsapi.org/v2/top-headlines/sources?apiKey=bf41c384122e421897631ba87f0ce049
-    static Future<SourcesResponse> getSources() async {
+    static Future<SourcesResponse> getSources(String categoryId) async {
       var url = Uri.https(baseURL, '/v2/top-headlines/sources',
           {'apiKey': 'bf41c384122e421897631ba87f0ce049',
+            'category': categoryId
           }
           );
       try {
